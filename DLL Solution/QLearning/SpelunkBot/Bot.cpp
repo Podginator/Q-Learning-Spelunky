@@ -61,7 +61,8 @@ SPELUNKBOT_API double Update(double botXPos, double botYPos)
 	// Sample bot
 
 	ResetBotVariables();
-	std::cout << "FOUND EXIT" << std::endl;
+	SpelunkerState state;
+	std::cout <<  state.size << " EXIT" << std::endl;
 
 	_goRight = true;
 

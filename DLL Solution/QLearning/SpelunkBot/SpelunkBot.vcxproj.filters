@@ -27,13 +27,13 @@
     <ClInclude Include="Bot.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Q-LearningBot\SpelunkBot\SpelunkerState.h">
+    <ClInclude Include="SpelunkerState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Q-LearningBot\SpelunkBot\Actions.h">
+    <ClInclude Include="Actions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Q-LearningBot\SpelunkBot\ActionQLearning.h">
+    <ClInclude Include="ActionQLearning.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

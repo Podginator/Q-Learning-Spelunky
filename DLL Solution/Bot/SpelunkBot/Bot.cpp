@@ -59,13 +59,7 @@ SPELUNKBOT_API double Initialise(void)
 SPELUNKBOT_API double Update(double botXPos, double botYPos)
 {
 	// Sample bot
-
-	ResetBotVariables();
-	std::cout << "TESTTESTETS EXIT" << std::endl;
-
 	_goRight = true;
-
-
 	return 1;
 }
 

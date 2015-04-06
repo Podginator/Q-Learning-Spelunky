@@ -10,6 +10,9 @@
 #define SPELUNKBOT_API extern "C" __declspec(dllimport)
 #endif
 
+#include "SpelunkerState.h";
+
+
 #pragma region Function Declarations
 
 /*
