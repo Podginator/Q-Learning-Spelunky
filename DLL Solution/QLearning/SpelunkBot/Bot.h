@@ -12,10 +12,16 @@
 
 #include "SpelunkerState.h";
 #include "Environment.h";
+#include "GlobalVars.h";
 
+
+#pragma region Vars
+	
+Environment currentEnvironment;
+
+#pragma endregion
 
 #pragma region Function Declarations
-
 /*
 	All DLL functions to be called from Game Maker need to return a string or a double.
 
@@ -64,40 +70,6 @@ SPELUNKBOT_API double GetTargetX(void);
 SPELUNKBOT_API double GetTargetY(void);
 SPELUNKBOT_API double GetAttack(void);
 
-#pragma endregion
-
-#pragma region Variables
-
-double _pathCount;
-double _tempID;
-double _waitTimer;
-double _targetX;
-double _targetY;
-
-double _playerStartX;
-double _playerStartY;
-double _playerStartXNode;
-double _playerStartYNode;
-
-double _playerPositionX;
-double _playerPositionY;
-double _playerPositionXNode;
-double _playerPositionYNode;
-
-bool _hasGoal;
-bool _spIsInAir;
-bool _spIsJetpacking;
-bool _itemGoal;
-bool _fogGoal;
-bool _endGoal;
-bool _headingRight;
-bool _headingLeft;
-bool _goRight;
-bool _goLeft;
-bool _jump;
-bool _attack;
-
-#pragma endregion
 
 #pragma region API Imports
 
@@ -286,6 +258,6 @@ IsCollectableInNodePROC IsCollectableInNode = (IsCollectableInNodePROC)GetProcAd
 typedef double(__cdecl *IsNodePassablePROC)(double x, double y, double usingPixelCoords);
 IsNodePassablePROC IsNodePassable = (IsNodePassablePROC)GetProcAddress(spelunkbots_hModule, "IsNodePassable");
 
-typedef Environment(__cdecl *GetEnvironmentPROC)();
+typedef Environment(__cdecl *GetEnvironmentPROC)(Environment &env);
 GetEnvironmentPROC GetEnvironment = (GetEnvironmentPROC)GetProcAddress(spelunkbots_hModule, "GetEnvironment");
 #pragma endregion

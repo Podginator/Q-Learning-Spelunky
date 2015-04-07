@@ -1,5 +1,5 @@
 #pragma once
-
+#include "Environment.h"
 
 //We have to create a state that can be representated numerically, and create a wide range of numbers based on the state variables
 //Incorporate environment, spelunker state, position x and y etc. 
@@ -8,6 +8,17 @@
 class SpelunkerState
 {
 public:
+
+	SpelunkerState()
+	{
+
+	}
+
+	//Updates state with environment information.
+	void Update(Environment enviornment)
+	{
+		
+	}
 	//Spelunker Direction
 
 	//Spelunker X_Y

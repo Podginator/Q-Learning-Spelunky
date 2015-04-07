@@ -61,7 +61,10 @@ SPELUNKBOT_API double Update(double botXPos, double botYPos)
 {
 	// Sample bot
 	ResetBotVariables();
-	Environment hi = GetEnvironment();
+	//Get Environment.
+	GetEnvironment(currentEnvironment);
+	currentEnvironment.currentX = botXPos*PIXELS_IN_NODES;
+	currentEnvironment.currentY = botYPos*PIXELS_IN_NODES;
 
 	return 1;
 }

@@ -84,6 +84,7 @@
     <ClInclude Include="Actions.h" />
     <ClInclude Include="Bot.h" />
     <ClInclude Include="Environment.h" />
+    <ClInclude Include="GlobalVars.h" />
     <ClInclude Include="SpelunkerState.h" />
     <ClInclude Include="SpelunkyAgent.h" />
     <ClInclude Include="stdafx.h" />

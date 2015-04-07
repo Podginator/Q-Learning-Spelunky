@@ -1,4 +1,4 @@
-﻿Build started 07/04/2015 17:13:02.
+﻿Build started 07/04/2015 17:50:23.
      1>Project "C:\Users\Podginato\Documents\GitHub\Q-Learning-Spelunky\DLL Solution\Spelunkbots\Spelunkbots\Spelunkbots.vcxproj" on node 2 (Build target(s)).
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(357,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
      1>ClCompile:
@@ -6,26 +6,30 @@
          Spelunkbots.cpp
      1>Spelunkbots.cpp(34): warning C4996: 'freopen': This function or variable may be unsafe. Consider using freopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(226) : see declaration of 'freopen'
-     1>Spelunkbots.cpp(777): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
      1>Spelunkbots.cpp(778): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-     1>Spelunkbots.cpp(961): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>Spelunkbots.cpp(779): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
      1>Spelunkbots.cpp(962): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-     1>Spelunkbots.cpp(1015): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>Spelunkbots.cpp(963): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
      1>Spelunkbots.cpp(1016): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
      1>Spelunkbots.cpp(1017): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-     1>Spelunkbots.cpp(1313): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>Spelunkbots.cpp(1018): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
      1>Spelunkbots.cpp(1314): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-     1>Spelunkbots.cpp(1362): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>Spelunkbots.cpp(1315): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
      1>Spelunkbots.cpp(1363): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-     1>Spelunkbots.cpp(1372): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>Spelunkbots.cpp(1364): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
      1>Spelunkbots.cpp(1373): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-     1>Spelunkbots.cpp(1535): warning C4018: '<' : signed/unsigned mismatch
-     1>Spelunkbots.cpp(1537): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>Spelunkbots.cpp(1374): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>Spelunkbots.cpp(1536): warning C4018: '<' : signed/unsigned mismatch
      1>Spelunkbots.cpp(1538): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
-     1>Spelunkbots.cpp(1578): warning C4018: '<' : signed/unsigned mismatch
-     1>Spelunkbots.cpp(1580): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>Spelunkbots.cpp(1539): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>Spelunkbots.cpp(1579): warning C4018: '<' : signed/unsigned mismatch
      1>Spelunkbots.cpp(1581): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
-     1>Spelunkbots.cpp(1622): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>Spelunkbots.cpp(1582): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>Spelunkbots.cpp(1623): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>Spelunkbots.cpp(1685): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>Spelunkbots.cpp(1686): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>Spelunkbots.cpp(1687): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>Spelunkbots.cpp(1688): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\..\..\Source\spelunky_1_1\Spelunkbots.dll" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"..\..\..\Source\spelunky_1_1\Spelunkbots.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"..\..\..\Source\spelunky_1_1\Spelunkbots.lib" /MACHINE:X86 /SAFESEH /DLL Release\dllmain.obj
          Release\Spelunkbots.obj
@@ -39,4 +43,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.88
+Time Elapsed 00:00:01.72

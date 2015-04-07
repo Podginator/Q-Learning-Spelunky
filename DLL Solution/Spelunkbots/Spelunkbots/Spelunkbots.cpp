@@ -116,6 +116,7 @@ int whipKills = 0;
 int stompKills = 0;
 double startPositionX = 0;
 double startPositionY = 0;
+int spelunkerHP = 0;
 
 #pragma endregion
 
@@ -1638,28 +1639,35 @@ GMEXPORT double IsNodePassable(double x, double y, double usingPixelCoords)
 class Environment
 {
 public:
-	double spmap[X_NODES][Y_NODES];
-	double mapLiquids[X_NODES][Y_NODES];
-	double mapFog[X_NODES][Y_NODES];
+	//Map Information 
+	double spmap[42][34];
+	double mapLiquids[42][34];
+	double mapFog[42][34];
+	double spiderWebs[42][34];
+	double pushBlocks[42][34];
+	double bats[42][34];
 
-	// An array that contains how many spider webs each position contains
-	double spiderWebs[X_NODES][Y_NODES];
-	double pushBlocks[X_NODES][Y_NODES];
-	double bats[X_NODES][Y_NODES];
-	//std::vector<collectableObject> collectablesList;
-	//std::vector<collectableObject> enemiesList;
 
+	//Spelunkers position information
 	double startX;
 	double startY;
+	double currentX;
+	double currentY;
+	double GetDistanceTravelled();
 
+	//SpelunkerHealth
+	int SpelunkerHealth;
+
+
+	//Items
 	bool udjatEye;
 	bool coolGlasses;
 	bool shopkeepersAngered;
 
+	//Kills
 	int kills;
 	int stompKills;
 	int whipKills;
-
 };
 
 
@@ -1672,31 +1680,37 @@ GMEXPORT double UpdateStartPos(double x, double y)
 	cout << "Hi" << std::endl;
 	return 0;
 }
-
-GMEXPORT Environment GetEnvironment()
+GMEXPORT double GetSpelunkerInfo(double spelunkHP, double whip, double stomp)
 {
-	Environment current;
+	stompKills = stomp;
+	whipKills = whip;
+	enemiesKilled = whip+stomp;
+	spelunkerHP = spelunkHP;
+
+	return 0;
+}
+GMEXPORT void GetEnvironment(Environment &env)
+{
 
 	//This is terrible. I know. 
-	memcpy(current.spmap, spmap,sizeof(double)*X_NODES*Y_NODES);
-	memcpy(current.mapLiquids, mapLiquids, sizeof(double)*X_NODES*Y_NODES);
-	memcpy(current.mapFog, mapFog, sizeof(double)*X_NODES*Y_NODES);
-	memcpy(current.spiderWebs, spiderWebs, sizeof(double)*X_NODES*Y_NODES);
-	memcpy(current.pushBlocks, pushBlocks, sizeof(double)*X_NODES*Y_NODES);
-	memcpy(current.bats, bats, sizeof(double)*X_NODES*Y_NODES);
+	memcpy(env.spmap, spmap,sizeof(double)*X_NODES*Y_NODES);
+	memcpy(env.mapLiquids, mapLiquids, sizeof(double)*X_NODES*Y_NODES);
+	memcpy(env.mapFog, mapFog, sizeof(double)*X_NODES*Y_NODES);
+	memcpy(env.spiderWebs, spiderWebs, sizeof(double)*X_NODES*Y_NODES);
+	memcpy(env.pushBlocks, pushBlocks, sizeof(double)*X_NODES*Y_NODES);
+	memcpy(env.bats, bats, sizeof(double)*X_NODES*Y_NODES);
 	
 	//Probably could pass a reference instead of copy.
 	//current.collectablesList = collectablesList;
 	//current.enemiesList = enemiesList;
 
-	current.kills = enemiesKilled;
-	current.stompKills = stompKills;
-	current.whipKills = whipKills;
+	env.kills = enemiesKilled;
+	env.stompKills = stompKills;
+	env.whipKills = whipKills;
 
-	current.startX = startPositionX;
-	current.startY = startPositionY;
-
-	return current;
+	env.startX = startPositionX;
+	env.startY = startPositionY;
+	env.SpelunkerHealth = spelunkerHP;
 }
 
 #pragma endregion
