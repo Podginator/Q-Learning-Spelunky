@@ -36,6 +36,12 @@
     <ClInclude Include="ActionQLearning.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SpelunkyAgent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Environment.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

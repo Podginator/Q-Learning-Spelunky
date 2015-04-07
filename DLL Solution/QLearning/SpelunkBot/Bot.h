@@ -11,6 +11,7 @@
 #endif
 
 #include "SpelunkerState.h";
+#include "Environment.h";
 
 
 #pragma region Function Declarations
@@ -278,4 +279,8 @@ IsCollectableInNodePROC IsCollectableInNode = (IsCollectableInNodePROC)GetProcAd
 typedef double(__cdecl *IsNodePassablePROC)(double x, double y, double usingPixelCoords);
 IsNodePassablePROC IsNodePassable = (IsNodePassablePROC)GetProcAddress(spelunkbots_hModule, "IsNodePassable");
 
+
+
+typedef Environment(__cdecl *GetEnvironmentPROC)();
+GetEnvironmentPROC GetEnvironment = (GetEnvironmentPROC)GetProcAddress(spelunkbots_hModule, "GetEnvironment");
 #pragma endregion

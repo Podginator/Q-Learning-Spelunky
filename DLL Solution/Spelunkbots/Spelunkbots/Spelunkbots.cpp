@@ -19,7 +19,6 @@ using namespace std;
 
 // Use GMEXPORT on all functions that are to be accessed
 #define GMEXPORT extern "C" __declspec (dllexport)
-
 // Number of x and y nodes
 #define X_NODES 42
 #define Y_NODES 34
@@ -112,6 +111,9 @@ bool coolGlasses;
 
 // Game State
 bool shopkeepersAngered;
+int enemiesKilled = 0;
+int whipKills = 0; 
+int stompKills = 0;
 
 #pragma endregion
 
@@ -1005,6 +1007,19 @@ GMEXPORT double RemoveEnemyWithID(double id)
 	return 0;
 }
 
+
+GMEXPORT double UpdateKillCounters(double whip, double stomp, double total)
+{
+	stompKills = stomp;
+	whipKills = whip;
+	enemiesKilled = total;
+
+
+	std::cout << whip << std::endl; 
+
+	return 0;
+}
+
 /*
 	NumberOfEnemyTypeInNode returns the number of enemies in a node.
 	Node coordinates or pixel coordinates may be used, using the third paramter, usingPixelCoords.
@@ -1611,6 +1626,58 @@ GMEXPORT double IsNodePassable(double x, double y, double usingPixelCoords)
 	}
 
 	return 0;
+}
+
+#pragma endregion
+
+#pragma region Environment 
+
+//Storage class for environment.
+class Environment
+{
+public:
+	double spmap[X_NODES][Y_NODES];
+	double mapLiquids[X_NODES][Y_NODES];
+	double mapFog[X_NODES][Y_NODES];
+
+	// An array that contains how many spider webs each position contains
+	double spiderWebs[X_NODES][Y_NODES];
+	double pushBlocks[X_NODES][Y_NODES];
+	double bats[X_NODES][Y_NODES];
+	//std::vector<collectableObject> collectablesList;
+	//std::vector<collectableObject> enemiesList;
+
+	bool udjatEye;
+	bool coolGlasses;
+	bool shopkeepersAngered;
+
+	int kills;
+	int stompKills;
+	int whipKills;
+};
+
+GMEXPORT Environment GetEnvironment()
+{
+	Environment current;
+
+	//This is terrible. I know. 
+	memcpy(current.spmap, spmap,sizeof(double)*X_NODES*Y_NODES);
+	memcpy(current.mapLiquids, mapLiquids, sizeof(double)*X_NODES*Y_NODES);
+	memcpy(current.mapFog, mapFog, sizeof(double)*X_NODES*Y_NODES);
+	memcpy(current.spiderWebs, spiderWebs, sizeof(double)*X_NODES*Y_NODES);
+	memcpy(current.pushBlocks, pushBlocks, sizeof(double)*X_NODES*Y_NODES);
+	memcpy(current.bats, bats, sizeof(double)*X_NODES*Y_NODES);
+	
+	//Probably could pass a reference instead of copy.
+	//current.collectablesList = collectablesList;
+	//current.enemiesList = enemiesList;
+
+	current.kills = enemiesKilled;
+	current.stompKills = stompKills;
+	current.whipKills = whipKills;
+
+
+	return current;
 }
 
 #pragma endregion

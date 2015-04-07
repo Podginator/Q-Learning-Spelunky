@@ -60,11 +60,16 @@ SPELUNKBOT_API double Update(double botXPos, double botYPos)
 {
 	// Sample bot
 
+
 	ResetBotVariables();
-	SpelunkerState state;
-	std::cout <<  state.size << " EXIT" << std::endl;
+
+	
+	Environment hi = GetEnvironment();
+
+	std::cout << hi.whipKills << std::endl;
 
 	_goRight = true;
+	_attack = true;
 
 
 	return 1;
