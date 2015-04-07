@@ -73,10 +73,17 @@ double _tempID;
 double _waitTimer;
 double _targetX;
 double _targetY;
+
+double _playerStartX;
+double _playerStartY;
+double _playerStartXNode;
+double _playerStartYNode;
+
 double _playerPositionX;
 double _playerPositionY;
 double _playerPositionXNode;
 double _playerPositionYNode;
+
 bool _hasGoal;
 bool _spIsInAir;
 bool _spIsJetpacking;
@@ -278,8 +285,6 @@ IsCollectableInNodePROC IsCollectableInNode = (IsCollectableInNodePROC)GetProcAd
 
 typedef double(__cdecl *IsNodePassablePROC)(double x, double y, double usingPixelCoords);
 IsNodePassablePROC IsNodePassable = (IsNodePassablePROC)GetProcAddress(spelunkbots_hModule, "IsNodePassable");
-
-
 
 typedef Environment(__cdecl *GetEnvironmentPROC)();
 GetEnvironmentPROC GetEnvironment = (GetEnvironmentPROC)GetProcAddress(spelunkbots_hModule, "GetEnvironment");

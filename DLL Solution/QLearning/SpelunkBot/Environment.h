@@ -12,6 +12,9 @@ public:
 	double pushBlocks[42][34];
 	double bats[42][34];
 
+	double startX;
+	double startY;
+
 	bool udjatEye;
 	bool coolGlasses;
 	bool shopkeepersAngered;

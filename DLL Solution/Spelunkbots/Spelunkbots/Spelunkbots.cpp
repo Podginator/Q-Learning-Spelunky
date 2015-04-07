@@ -114,6 +114,8 @@ bool shopkeepersAngered;
 int enemiesKilled = 0;
 int whipKills = 0; 
 int stompKills = 0;
+double startPositionX = 0;
+double startPositionY = 0;
 
 #pragma endregion
 
@@ -1647,6 +1649,9 @@ public:
 	//std::vector<collectableObject> collectablesList;
 	//std::vector<collectableObject> enemiesList;
 
+	double startX;
+	double startY;
+
 	bool udjatEye;
 	bool coolGlasses;
 	bool shopkeepersAngered;
@@ -1654,7 +1659,19 @@ public:
 	int kills;
 	int stompKills;
 	int whipKills;
+
 };
+
+
+GMEXPORT double UpdateStartPos(double x, double y)
+{
+	startPositionX = x;
+	startPositionY = y;
+
+
+	cout << "Hi" << std::endl;
+	return 0;
+}
 
 GMEXPORT Environment GetEnvironment()
 {
@@ -1676,6 +1693,8 @@ GMEXPORT Environment GetEnvironment()
 	current.stompKills = stompKills;
 	current.whipKills = whipKills;
 
+	current.startX = startPositionX;
+	current.startY = startPositionY;
 
 	return current;
 }

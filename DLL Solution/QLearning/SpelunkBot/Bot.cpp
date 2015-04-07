@@ -26,6 +26,7 @@
 
 #pragma region Setup
 
+
 SPELUNKBOT_API double Initialise(void)
 {
 	_targetX = 0;
@@ -59,18 +60,8 @@ SPELUNKBOT_API double Initialise(void)
 SPELUNKBOT_API double Update(double botXPos, double botYPos)
 {
 	// Sample bot
-
-
 	ResetBotVariables();
-
-	
 	Environment hi = GetEnvironment();
-
-	std::cout << hi.whipKills << std::endl;
-
-	_goRight = true;
-	_attack = true;
-
 
 	return 1;
 }
