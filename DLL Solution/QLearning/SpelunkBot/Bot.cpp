@@ -57,15 +57,21 @@ SPELUNKBOT_API double Initialise(void)
 
 #pragma region Bot Logic
 
-SPELUNKBOT_API double Update(double botXPos, double botYPos)
+SPELUNKBOT_API double Update(double hp, double botXPos, double botYPos)
 {
 	// Sample bot
 	ResetBotVariables();
 	//Get Environment.
 	GetEnvironment(currentEnvironment);
+	currentEnvironment.SpelunkerHealth = hp;
 	currentEnvironment.currentX = botXPos*PIXELS_IN_NODES;
 	currentEnvironment.currentY = botYPos*PIXELS_IN_NODES;
 
+
+	std::cout << currentEnvironment.kills << std::endl;
+
+	_goRight = true; 
+	
 	return 1;
 }
 

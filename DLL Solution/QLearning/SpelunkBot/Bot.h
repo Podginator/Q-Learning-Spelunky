@@ -46,7 +46,7 @@ SPELUNKBOT_API double Initialise(void);
 	
 	Use this function to perform the logic for your bot.
 */
-SPELUNKBOT_API double Update(double botXPos, double botYPos);
+SPELUNKBOT_API double Update(double health, double botXPos, double botYPos);
 /*
 	Getter functions for variables.
 
@@ -258,6 +258,6 @@ IsCollectableInNodePROC IsCollectableInNode = (IsCollectableInNodePROC)GetProcAd
 typedef double(__cdecl *IsNodePassablePROC)(double x, double y, double usingPixelCoords);
 IsNodePassablePROC IsNodePassable = (IsNodePassablePROC)GetProcAddress(spelunkbots_hModule, "IsNodePassable");
 
-typedef Environment(__cdecl *GetEnvironmentPROC)(Environment &env);
+typedef void(__cdecl *GetEnvironmentPROC)(Environment &env);
 GetEnvironmentPROC GetEnvironment = (GetEnvironmentPROC)GetProcAddress(spelunkbots_hModule, "GetEnvironment");
 #pragma endregion

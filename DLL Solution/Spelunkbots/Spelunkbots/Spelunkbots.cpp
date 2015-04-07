@@ -1675,9 +1675,6 @@ GMEXPORT double UpdateStartPos(double x, double y)
 {
 	startPositionX = x;
 	startPositionY = y;
-
-
-	cout << "Hi" << std::endl;
 	return 0;
 }
 GMEXPORT double GetSpelunkerInfo(double spelunkHP, double whip, double stomp)
@@ -1686,6 +1683,8 @@ GMEXPORT double GetSpelunkerInfo(double spelunkHP, double whip, double stomp)
 	whipKills = whip;
 	enemiesKilled = whip+stomp;
 	spelunkerHP = spelunkHP;
+
+	cout << "Called " << "   "  << whip << " " << stomp << " "  << spelunkHP <<  endl;
 
 	return 0;
 }
@@ -1710,7 +1709,6 @@ GMEXPORT void GetEnvironment(Environment &env)
 
 	env.startX = startPositionX;
 	env.startY = startPositionY;
-	env.SpelunkerHealth = spelunkerHP;
 }
 
 #pragma endregion
