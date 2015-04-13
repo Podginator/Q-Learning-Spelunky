@@ -15,6 +15,6 @@ public:
 	static int MinTravel;
 	static int StuckFrames;
 	//Store Reward Values.
-	static std::map<const char*, float> rewards;
+	static std::map<std::string, float> rewards;
 
 };

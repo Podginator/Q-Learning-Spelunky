@@ -44,32 +44,7 @@ public:
 	//StateNumber (Unique Identifier)
 
 
-	//UpdateMethod for State.
-	/*Inputs from SpelunkBots.cpp
-		WorldMap
-		double spmap[X_NODES][Y_NODES];
-		Liquids
-		double mapLiquids[X_NODES][Y_NODES];
-		Fog
-		double mapFog[X_NODES][Y_NODES];
-
-		// An array that contains how many spider webs each position contains
-		Maybe Not needed
-		double spiderWebs[X_NODES][Y_NODES];
-		double pushBlocks[X_NODES][Y_NODES];
-		Bats should be enemies.
-		double bats[X_NODES][Y_NODES];
-
-		//Contains list of Objects with x,y and type params and id.
-		std::vector<collectableObject> collectablesList;
-		std::vector<collectableObject> enemiesList;
-
-		Could shorten this.
-	*/
-
 	//GetStateNum(How to?)
 
 	//Direction
-
-	//
 };

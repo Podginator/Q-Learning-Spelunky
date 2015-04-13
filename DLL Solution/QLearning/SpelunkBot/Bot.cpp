@@ -40,7 +40,6 @@ SPELUNKBOT_API double Initialise(void)
 
 SPELUNKBOT_API double Update(double hp, double botXPos, double botYPos)
 {
-	// Sample bot
 	act.ResetBotVariables();
 	//Get Environment.
 	GetEnvironment(currentEnvironment);
