@@ -1,9 +1,3 @@
-// The following ifdef block is the standard way of creating macros which make exporting 
-// from a DLL simpler. All files within this DLL are compiled with the SPELUNKBOT_EXPORTS
-// symbol defined on the command line. This symbol should not be defined on any project
-// that uses this DLL. This way any other project whose source files include this file see 
-// SPELUNKBOT_API functions as being imported from a DLL, whereas this DLL sees symbols
-// defined with this macro as being exported.
 #ifdef SPELUNKBOT_EXPORTS
 #define SPELUNKBOT_API extern "C" __declspec(dllexport)
 #else
@@ -12,46 +6,27 @@
 
 #include "SpelunkerState.h";
 #include "Environment.h";
-#include "GlobalVars.h";
-
+#include "Actions.h"
 
 #pragma region Vars
-	
+
+SpelunkerActions act;
 Environment currentEnvironment;
 
 #pragma endregion
 
 #pragma region Function Declarations
-/*
-	All DLL functions to be called from Game Maker need to return a string or a double.
-
-	Use these functions to convert values are required.
-*/
 double ConvertBoolToDouble(bool valToConvert);
 char* ConvertBoolToChar(bool valToConvert);
 
-/*
-	ResetBotVariables is used to reset any bot variables e.g. _goLeft or _goRight
-*/
+
 void ResetBotVariables(void);
 
-/*
-	Initialise is used to setup any variables when a bot enters a room.
 
-	Add any additional variable initialisation here.
-*/
 SPELUNKBOT_API double Initialise(void);
-/*
-	Update contains the main logic for a C++ bot. 
-	
-	Use this function to perform the logic for your bot.
-*/
-SPELUNKBOT_API double Update(double health, double botXPos, double botYPos);
-/*
-	Getter functions for variables.
 
-	Add additional functions as required.
-*/
+SPELUNKBOT_API double Update(double health, double botXPos, double botYPos);
+
 SPELUNKBOT_API double GetHasGoal(void);
 SPELUNKBOT_API double GetIsInAir(void);
 SPELUNKBOT_API double GetIsJetpacking(void);
@@ -70,6 +45,7 @@ SPELUNKBOT_API double GetTargetX(void);
 SPELUNKBOT_API double GetTargetY(void);
 SPELUNKBOT_API double GetAttack(void);
 
+#pragma endregion
 
 #pragma region API Imports
 

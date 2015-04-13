@@ -12,7 +12,6 @@ public:
 	double pushBlocks[42][34];
 	double bats[42][34];
 
-
 	//Spelunkers position information
 	double startX;
 	double startY;
@@ -22,7 +21,6 @@ public:
 
 	//SpelunkerHealth
 	int SpelunkerHealth;
-
 
 	//Items
 	bool udjatEye;
