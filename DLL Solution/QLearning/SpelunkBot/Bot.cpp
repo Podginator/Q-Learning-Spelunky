@@ -40,16 +40,36 @@ SPELUNKBOT_API double Initialise(void)
 
 SPELUNKBOT_API double Update(double hp, double botXPos, double botYPos)
 {
-	act.ResetBotVariables();
-	//Get Environment.
-	GetEnvironment(currentEnvironment);
-	currentEnvironment.SpelunkerHealth = hp;
-	currentEnvironment.currentX = botXPos*PIXELS_IN_NODES;
-	currentEnvironment.currentY = botYPos*PIXELS_IN_NODES;
+	if (frames == 4)
+	{
 
-	act.doRandomAction();
-	
-	
+
+		//Get Environment.
+		api.GetEnvironment(currentEnvironment);
+		currentEnvironment.SpelunkerHealth = hp;
+		currentEnvironment.currentX = botXPos;
+		currentEnvironment.currentY = botYPos;
+		currentState.Update(currentEnvironment);
+		act.ResetBotVariables();
+		//QTable
+		reward = currentState.GetReward();
+
+		
+		qTable.updateQValue(reward, state);
+		prevAct = qTable.GetNextAct(state);
+		qTable.prevAct = prevAct;
+		act.doAction(prevAct);
+		state = currentState.GetStateNum();
+		
+		frames = 0;
+	}
+	else
+	{
+		frames++;
+		qTable.saveFile();
+
+	}
+
 	return 1;
 }
 

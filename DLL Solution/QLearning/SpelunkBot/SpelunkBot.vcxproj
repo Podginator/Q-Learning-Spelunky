@@ -84,8 +84,8 @@
     <ClInclude Include="Actions.h" />
     <ClInclude Include="Bot.h" />
     <ClInclude Include="Environment.h" />
-    <ClInclude Include="GlobalVars.h" />
     <ClInclude Include="ActionEnum.h" />
+    <ClInclude Include="Header.h" />
     <ClInclude Include="LearningParams.h" />
     <ClInclude Include="SpelunkerState.h" />
     <ClInclude Include="SpelunkyAgent.h" />
@@ -93,6 +93,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ActionQLearning.cpp" />
     <ClCompile Include="Actions.cpp" />
     <ClCompile Include="dllmain.cpp">
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>

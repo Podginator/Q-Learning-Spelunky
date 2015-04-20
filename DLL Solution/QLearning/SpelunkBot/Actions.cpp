@@ -32,7 +32,7 @@ Actions SpelunkerActions::doRandomAction()
 	Actions res = Actions::NOTHING;
 	int actNum = rand() % total_actions;
 
-	std::cout << actNum << std::endl;
+	ResetBotVariables();
 
 	switch (actNum)
 	{
@@ -66,6 +66,8 @@ Actions SpelunkerActions::doRandomAction()
 		res = Actions::WHIP;
 		break;
 	case 8: 
+		_jump = true;
+		_attack = true;
 		res = Actions::LEFT_WHIP;
 		break;
 	case 9: 
@@ -80,6 +82,7 @@ Actions SpelunkerActions::doRandomAction()
 		break;
 	}
 
+	action = res;
 
 	return res;
 }
@@ -90,29 +93,62 @@ void SpelunkerActions::doAction(Actions action)
 	{
 	case Actions::RIGHT:
 		_goRight = true;
+		this->action = Actions::RIGHT;
 		break;
 	case Actions::LEFT:
 		_goLeft = true;
+		this->action = Actions::LEFT;
 		break;
 	case Actions::JUMP:
 		_jump = true;
+		this->action = Actions::JUMP;
 		break;
 	case Actions::JUMP_WHIP:
 		_jump = true;
 		_attack = true;
+		this->action = Actions::JUMP_WHIP;
 		break;
 	case Actions::LEFT_JUMP:
 		_goLeft = true;
-		_attack = true;
+		_jump = true;
+		this->action = Actions::LEFT_JUMP;
+		break;
+	case Actions::RIGHT_JUMP:
+		_goRight = true;
+		_jump = true;
+		this->action = Actions::RIGHT_JUMP;
 		break;
 	case Actions::RIGHT_WHIP:
 		_goRight = true;
 		_attack = true;
+		this->action = Actions::RIGHT_WHIP;
+		break;
+	case Actions::LEFT_WHIP:
+		_goLeft = true;
+		_attack = true;
+		this->action = Actions::LEFT_WHIP;
 		break;
 	case Actions::WHIP:
 		_attack = true;
+		this->action = Actions::WHIP;
 		break;
 	case Actions::NOTHING:
+		this->action = Actions::NOTHING;
 		break;
 	}
+
 }
+
+std::map<Actions, const char *> SpelunkerActions::map = std::map<Actions, const char *>{
+	{ Actions::NOTHING, "Nothing" },
+	{ Actions::LEFT, "L" },
+	{ Actions::RIGHT, "R" },
+	{ Actions::JUMP, "J" },
+	{ Actions::WHIP, "W" },
+	{ Actions::LEFT_JUMP, "LJ" },
+	{ Actions::RIGHT_JUMP, "RJ" },
+	{ Actions::LEFT_WHIP, "LW" },
+	{ Actions::RIGHT_WHIP, "RW" },
+	{ Actions::JUMP_WHIP, "JW" }
+};
+

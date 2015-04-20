@@ -1,8 +1,8 @@
 #pragma once
-#include "GlobalVars.h";
-//#include "ActionEnum.h"
 #include <stdlib.h>;
+#include <map>
 #include "ActionEnum.h";
+
 
 struct SpelunkerActions
 {
@@ -31,7 +31,11 @@ public:
 	bool _jump;
 	bool _attack;
 
+	Actions GetAction(){ printf(map[action]); return action; };
+	static std::string PrintAction(Actions action){ return map[action]; };
+
 private:
 	size_t actionNum;
+	static std::map<Actions, const char *> map;
 	Actions action; 
 };

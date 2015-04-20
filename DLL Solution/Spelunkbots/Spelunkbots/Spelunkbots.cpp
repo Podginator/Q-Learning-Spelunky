@@ -117,6 +117,7 @@ int stompKills = 0;
 double startPositionX = 0;
 double startPositionY = 0;
 int spelunkerHP = 0;
+bool isInAir = 0;
 
 #pragma endregion
 
@@ -1017,9 +1018,6 @@ GMEXPORT double UpdateKillCounters(double whip, double stomp, double total)
 	whipKills = whip;
 	enemiesKilled = total;
 
-
-	std::cout << whip << std::endl; 
-
 	return 0;
 }
 
@@ -1664,6 +1662,11 @@ public:
 	bool coolGlasses;
 	bool shopkeepersAngered;
 
+	std::vector<collectableObject> collectablesList;
+	std::vector<collectableObject> enemiesList;
+
+	bool inAir;
+
 	//Kills
 	int kills;
 	int stompKills;
@@ -1684,13 +1687,19 @@ GMEXPORT double GetSpelunkerInfo(double spelunkHP, double whip, double stomp)
 	enemiesKilled = whip+stomp;
 	spelunkerHP = spelunkHP;
 
-	cout << "Called " << "   "  << whip << " " << stomp << " "  << spelunkHP <<  endl;
+	return 0;
+}
+
+GMEXPORT double GetBotStats(double inair)
+{
+	isInAir = inair;
 
 	return 0;
 }
+
 GMEXPORT void GetEnvironment(Environment &env)
 {
-
+	
 	//This is terrible. I know. 
 	memcpy(env.spmap, spmap,sizeof(double)*X_NODES*Y_NODES);
 	memcpy(env.mapLiquids, mapLiquids, sizeof(double)*X_NODES*Y_NODES);
@@ -1699,10 +1708,12 @@ GMEXPORT void GetEnvironment(Environment &env)
 	memcpy(env.pushBlocks, pushBlocks, sizeof(double)*X_NODES*Y_NODES);
 	memcpy(env.bats, bats, sizeof(double)*X_NODES*Y_NODES);
 	
-	//Probably could pass a reference instead of copy.
-	//current.collectablesList = collectablesList;
-	//current.enemiesList = enemiesList;
 
+	//Probably could pass a reference instead of copy.
+
+	//env.collectablesList = std::vector<collectableObject>(collectablesList);
+	//env.enemiesList = std::vector<collectableObject>(enemiesList);
+	env.inAir = isInAir;
 	env.kills = enemiesKilled;
 	env.stompKills = stompKills;
 	env.whipKills = whipKills;
