@@ -61,13 +61,13 @@ SPELUNKBOT_API double Update(double hp, double botXPos, double botYPos)
 		act.doAction(prevAct);
 		state = currentState.GetStateNum();
 		
+		qTable.saveFile();
+
 		frames = 0;
 	}
 	else
 	{
 		frames++;
-		qTable.saveFile();
-
 	}
 
 	return 1;
